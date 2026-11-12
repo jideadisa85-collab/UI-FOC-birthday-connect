@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=8e864d72-2dd2-46a6-9e5f-ad4018b3ad2e
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birthday Form</title>
+  <meta
+    name="description"
+    content="Register your details and birthday so your department can celebrate you."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Figtree:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <a class="skip-link" Ahref="#registration-form">Skip to the form</a>
+
+  <main class="page">
+    <section class="card" aria-labelledby="page-title">
+      <header class="card__header">
+
+
+        <!-- LOGOS -->
+        <div class="logo-bar">
+          <img
+            class="logo"
+            src="/IMAGE/UI Logo.jpeg"
+            alt="University of Ibadan logo"
+            width="80"
+            height="80"
+          />
+          <img
+            class="logo"
+            src="/IMAGE/NACOS Logo.jpeg"
+            alt="NACOS logo"
+            width="80"
+            height="80"
+          />
+        </div>
+        
+
+        <p class="card__kicker">
+         University of Ibadan <span class="kicker__sep">•</span> Faculty of Computing
+        </p>
+        <h1 id="page-title">UNIVERSITY OF IBADAN BIRTHDAY CONNECT</h1>
+        <p class="card__subtitle">
+          Every Birthday Deserves to be Celebrated.
+        </p>
+      </header>
+
+      <div id="form-message" class="form-message" role="status" aria-live="polite" tabindex="-1" hidden></div>
+
+      <form id="registration-form" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="firstName">First Name</label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              placeholder="Enter your first name"
+              autocomplete="given-name"
+              required
+              aria-describedby="firstName-error"
+            />
+            <p class="field__error" id="firstName-error" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label for="lastName">Last Name</label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              placeholder="Enter your last name"
+              autocomplete="family-name"
+              required
+              aria-describedby="lastName-error"
+            />
+            <p class="field__error" id="lastName-error" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="department">Department</label>
+          <select id="department" name="department" required aria-describedby="department-error">
+            <option value="" selected disabled>Select your department</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Data Science">Data Science</option>
+            <option value="Software Engineering">Software Engineering</option>
+            <option value="Cybersecurity">Cybersecurity</option>
+            <option value="ICT">ICT</option>
+          </select>
+          <p class="field__error" id="department-error" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone Number</label>
+          <input
+            type="number"
+            id="phone"
+            name="phone"
+            placeholder="Enter your phone number"
+            autocomplete="tel"
+            inputmode="tel"
+            required
+            aria-describedby="phone-hint phone-error"
+          />
+          <p class="field__hint" id="phone-hint">Examples: 08012345678 or +2348123456789</p>
+          <p class="field__error" id="phone-error" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
+          <label for="gender">Gender</label>
+          <select id="gender" name="gender" required aria-describedby="gender-error">
+            <option value="" selected disabled>Select your gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          <p class="field__error" id="gender-error" aria-live="polite"></p>
+        </div>
+
+        <div class="field birthday-field">
+          <fieldset class="birthday-fieldset">
+            <legend>Birthday Date</legend>
+
+            <div class="birthday-selects">
+              <div class="birthday-control">
+                <label for="birthdayMonth">Month</label>
+                <div class="select-wrap">
+                  <select
+                    id="birthdayMonth"
+                    name="birthdayMonth"
+                    required
+                    aria-describedby="birthday-hint birthday-error"
+                  >
+                    <option value="" selected disabled>Select month</option>
+                    <option value="01">January</option>
+                    <option value="02">February</option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="birthday-control">
+                <label for="birthdayDay">Day</label>
+                <div class="select-wrap">
+                  <select
+                    id="birthdayDay"
+                    name="birthdayDay"
+                    required
+                    disabled
+                    aria-describedby="birthday-hint birthday-error"
+                  >
+                    <option value="" selected disabled>Select day</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <input type="hidden" id="birthday" name="birthday" />
+
+            <p class="field__hint" id="birthday-hint">
+              Select your birth month and day
+            </p>
+            <p class="field__error" id="birthday-error" aria-live="polite"></p>
+          </fieldset>
+        </div>
+           <!-- SUBMIT BUTTON -->
+        <button type="submit" class="btn" id="submit-btn">
+          <span class="btn__spinner" aria-hidden="true"></span>
+          <span class="btn__label">Register My Birthday</span>
+        </button>
+      </form>
+
+      <p class="card__note">
+        <strong>Notice:</strong> Dear Students, kindly fill out this form with your correct details
+        and your BIRTHDAY date to help us compile a detail birthday date and celebrate
+        you on your special day. Your participation is highly appreciated.
+      </p>
+    </section>
+  </main>
+      <!-- JAVASCRIPT -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
+</html>
